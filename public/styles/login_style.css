@@ -1,0 +1,19 @@
+html{
+    background-color: honeydew;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+h1{
+    text-align: center;
+}
+form {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+form label {
+    font-size: large;
+    display: inline-block;
+    min-width: 150px;
+}
