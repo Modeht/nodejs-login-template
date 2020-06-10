@@ -1,12 +1,15 @@
+// if()
 const express = require('express');
 const app = express();
 const port = 3000;
 const bcrypt = require('bcrypt');
 const passport = require('passport');
-const initePassword = require('./passport-config');
+const initPassword = require('./passport-config');
+const flash = require('express-flash');
+const session = require('express-session');
+initPassword(passport, email => users.find(user => user.email === email) );
 
 
-initePassword.initialize(passport);
 //view engine stuff
 const exprhbs = require("express-handlebars");
 var hbs = exprhbs.create({
@@ -18,7 +21,10 @@ app.set("view engine", "handlebars");
 app.use(express.urlencoded({
     extended: false,
 }))
-
+app.use(flash());
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+}))
 //users array
 var users = [];
 //
